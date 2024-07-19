@@ -1,0 +1,25 @@
+name: starter
+on: push 
+
+jobs:
+  createart:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Create Artifact
+        run: echo "This is learning start" > learn.txt
+      - name: Upload Artifact
+        use: actions/upload-artifact@v4
+        with: 
+          name: learn-action-start
+          path: learn.txt
+
+  downloadart:
+    need: createart
+    runs-on: ubuntu-latest
+    steps:
+      - name: downloadartifact
+        use: actions/download-artifact@v4
+        with:
+          name: learn-action-start
+      - name: display art
+         run: cat learn.txt
