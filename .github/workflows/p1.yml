@@ -22,4 +22,4 @@ jobs:
         with:
           name: learn-action-start
       - name: display art
-         run: cat learn.txt
+        run: cat learn.txt
